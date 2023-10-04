@@ -339,8 +339,95 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol>
-                            <button type="button" class="btn  btn-square btn-primary"><i class="bi bi-person-plus"></i>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target=".bd-example-modal-lg"><i class="bi bi-person-plus"></i>
                                 &nbsp;Agregar cliente</button>
+                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content" style="background-color: #F8F9FE;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Completa los todos lo campos:</h5>
+                                            <button type="button" class="close"
+                                                data-dismiss="modal"><span>&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- FORMULARIO USUARIOS -->
+                                        <div class="modal-body">
+
+
+                                            <div class="basic-form" style="color: #888888; padding: 10px;">
+                                                <form>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>Nombres:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Apellidos:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>DNI:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Contraseña:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Fecha de nacimiento:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Tipo de usuario:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Estado:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Departamento:</label>  
+                                                            <select class="form-control state"></select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Provincia:</label>
+                                                            <select class="form-control city"></select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Distrito:</label>
+                                                            <select class="form-control district"></select>
+                                                        </div>
+
+ 
+
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary">Guardar</button>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </ol>
                     </div>
                 </div>
@@ -460,6 +547,78 @@
 
 
     <script src="./js/dashboard/dashboard-1.js"></script>
+    <script>
+
+                    //CARGAMOS LOS DEPARTAMENTOS
+                    $(document).ready(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-states' },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
+                                });
+                                $('.state').html(options);
+                                $('.city').html('<option value="">Seleccione</option>');
+                                $('.district').html('<option value="">Seleccione</option>');
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    //OBTENEMOS LAS CIUDADES POR DEPARTAMENTO
+                    $('.state').on('change', function () {
+                        var id = $(this).val();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-cities', id: id },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
+                                });
+                                $('.city').html(options);
+                                $('.district').html('<option value="">Seleccione</option>');
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    //OBTENEMOS LOS DISTRITOS POR CIUDAD
+                    $('.city').on('change', function () {
+                        var id = $(this).val();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-districts', id: id },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '" ubigeo="' + value.ubigeo + '">' + value.nombre + '</option>';
+                                });
+                                $('.district').html(options);
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    $('.district').on('change', function () {
+                        var ubigeo = $(this).find('option:selected').attr('ubigeo');
+                        $('.ubigeo').val(ubigeo);
+                    });
+                </script>
 
 </body>
 

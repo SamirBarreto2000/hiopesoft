@@ -64,102 +64,9 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            
-                        </div>
-
-                        <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="danger"><i class="ti-bookmark"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as
-                                                        unsolved.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-heart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>David</strong> purchased Light Dashboard 1.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-image"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong> James.</strong> has added a<strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                    </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
-                                            class="ti-arrow-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-account"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./app-profile.html" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
-                                    </a>
-                                    <a href="./email-inbox.html" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
-                                    <a href="./page-login.html" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
+        <?php 
+            include_once('elements/header.php')
+        ?>
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -167,159 +74,9 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="quixnav">
-            <div class="quixnav-scroll">
-                <ul class="metismenu" id="menu">
-                    <p></p>
-
-                    <li>
-                        <a href="index.php"><i class="icon icon-app-store"></i><span class="nav-text"> Inicio</span></a>
-                    </li>
-
-                    <li>
-                        <a href="usuarios.php"><i class="icon icon-single-04"></i><span class="nav-text">
-                                Usuarios</span></a>
-                    </li>
-
-
-
-
-                    <li><a class="has-arrow" href="proyectos.php" aria-expanded="false"><i
-                                class="icon icon-form"></i><span class="nav-text">Proyectos</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="proyectos.php">Dashboard 1</a></li>
-                            <li><a href="./index2.html">Dashboard 2</a></li>
-                        </ul>
-                    </li>
-
-
-
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Clientes</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="clientes.php">Registro clientes</a></li>
-                            <li><a href="./index2.html">Reporte clientes</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="bi bi-sliders"></i><span class="nav-text">Configuración</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Dashboard 1</a></li>
-                            <li><a href="./index2.html">Dashboard 2</a></li>
-                        </ul>
-                    </li>
-
-
-
-
-                    <li class="nav-label">Apps</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./email-compose.html">Compose</a></li>
-                                    <li><a href="./email-inbox.html">Inbox</a></li>
-                                    <li><a href="./email-read.html">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./app-calender.html">Calendar</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-chart-bar-33"></i><span class="nav-text">Charts</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Components</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-world-2"></i><span class="nav-text">Bootstrap</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.html">Accordion</a></li>
-                            <li><a href="./ui-alert.html">Alert</a></li>
-                            <li><a href="./ui-badge.html">Badge</a></li>
-                            <li><a href="./ui-button.html">Button</a></li>
-                            <li><a href="./ui-modal.html">Modal</a></li>
-                            <li><a href="./ui-button-group.html">Button Group</a></li>
-                            <li><a href="./ui-list-group.html">List Group</a></li>
-                            <li><a href="./ui-media-object.html">Media Object</a></li>
-                            <li><a href="./ui-card.html">Cards</a></li>
-                            <li><a href="./ui-carousel.html">Carousel</a></li>
-                            <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="./ui-popover.html">Popover</a></li>
-                            <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="./ui-tab.html">Tab</a></li>
-                            <li><a href="./ui-typography.html">Typography</a></li>
-                            <li><a href="./ui-pagination.html">Pagination</a></li>
-                            <li><a href="./ui-grid.html">Grid</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-plug"></i><span class="nav-text">Plugins</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./uc-select2.html">Select 2</a></li>
-                            <li><a href="./uc-nestable.html">Nestedable</a></li>
-                            <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="./uc-toastr.html">Toastr</a></li>
-                            <li><a href="./map-jqvmap.html">Jqv Map</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="widget-basic.html" aria-expanded="false"><i class="icon icon-globe-2"></i><span
-                                class="nav-text">Widget</span></a></li>
-                    <li class="nav-label">Forms</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-form"></i><span class="nav-text">Forms</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Form Elements</a></li>
-                            <li><a href="./form-wizard.html">Wizard</a></li>
-                            <li><a href="./form-editor-summernote.html">Summernote</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Table</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-label">Extra</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-
-        </div>
+        <?php 
+            include_once('elements/sliderbar.php')
+        ?>
         <!--**********************************
             Sidebar end
         ***********************************-->
@@ -334,14 +91,100 @@
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Panel de usuarios</h4>
-                            <p class="mb-0" style="color: #888888;">Gestiona y controla los usuarios</p>
+                            <p class="mb-0" style="color: #888888;">Gestiona y controla los clientes</p>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                       
                         <ol>
-                            <button type="button" class="btn  btn-square btn-primary"><i class="bi bi-person-plus"></i>
-                                &nbsp;nbsp;Agregar usuario</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target=".bd-example-modal-lg"><i class="bi bi-person-plus"></i>
+                                &nbsp;Agregar usuario</button>
+                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content" style="background-color: #F8F9FE;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Completa los todos lo campos:</h5>
+                                            <button type="button" class="close"
+                                                data-dismiss="modal"><span>&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- FORMULARIO USUARIOS -->
+                                        <div class="modal-body">
+
+
+                                            <div class="basic-form" style="color: #888888; padding: 10px;">
+                                                <form>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>Nombres:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Apellidos:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>DNI:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Contraseña:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Fecha de nacimiento:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Tipo de usuario:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Estado:</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Departamento:</label>  
+                                                            <select class="form-control state"></select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Provincia:</label>
+                                                            <select class="form-control city"></select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Distrito:</label>
+                                                            <select class="form-control district"></select>
+                                                        </div>
+
+ 
+
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary">Guardar</button>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </ol>
                     </div>
                 </div>
@@ -349,7 +192,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4 style="color: #888888;">Listado de usuarios</h4>
+                        <h4 style="color: #888888;">Listado de clientes</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -357,29 +200,34 @@
                                 <thead>
                                     <tr style="background-color: #593BDB; color: white;">
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Date</th>
-                                        <th>Date</th>
-                                        <th>Price</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>DNI</th>
+                                        <th>Estado</th>
+                                        <th>Tipo de usuario</th>
+                                        <th>Accion</th>
                                     </tr>
                                 </thead>
                                 <tbody style="color: #888888;">
                                     <tr>
                                         <th>1</th>
-                                        <td>Kolor Tea Shirt For Man</td>
-                                        <td>Sale</td>
-                                        <td>Sale</td>
-                                        <td>Kolor Tea Shirt For Man</td>
+                                        <td>Samir Enrique</td>
+                                        <td>Barreto Jara</td> 
+                                        <td>71446894</td> 
+                                        <td>Activo</td>
+                                        <td>Administrador</td>
                                         <td style="width: 70px">
                                             <div class="btn-group mr-2 mb-2">
-                                                <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-                                                <button type="button" class="btn btn-success" style="color: white;"><i class="bi bi-eye"></i></button>
+                                                <button type="button" class="btn btn-primary"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                                <button type="button" class="btn btn-danger"><i
+                                                        class="bi bi-trash3"></i></button>
+                                                <button type="button" class="btn btn-success" style="color: white;"><i
+                                                        class="bi bi-eye"></i></button>
 
                                             </div>
                                         </td>
-                                        
+
 
                                     </tr>
 
@@ -458,6 +306,78 @@
 
 
     <script src="./js/dashboard/dashboard-1.js"></script>
+    <script>
+
+                    //CARGAMOS LOS DEPARTAMENTOS
+                    $(document).ready(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-states' },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
+                                });
+                                $('.state').html(options);
+                                $('.city').html('<option value="">Seleccione</option>');
+                                $('.district').html('<option value="">Seleccione</option>');
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    //OBTENEMOS LAS CIUDADES POR DEPARTAMENTO
+                    $('.state').on('change', function () {
+                        var id = $(this).val();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-cities', id: id },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
+                                });
+                                $('.city').html(options);
+                                $('.district').html('<option value="">Seleccione</option>');
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    //OBTENEMOS LOS DISTRITOS POR CIUDAD
+                    $('.city').on('change', function () {
+                        var id = $(this).val();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'api/data.php',
+                            data: { action: 'get-districts', id: id },
+                            dataType: 'JSON',
+                            success: function (response) {
+                                var options = '<option value="">Seleccione</option>';
+                                $.each(response, function (index, value) {
+                                    options += '<option value="' + value.id + '" ubigeo="' + value.ubigeo + '">' + value.nombre + '</option>';
+                                });
+                                $('.district').html(options);
+                                $('.ubigeo').val(null);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                        });
+                    });
+
+                    $('.district').on('change', function () {
+                        var ubigeo = $(this).find('option:selected').attr('ubigeo');
+                        $('.ubigeo').val(ubigeo);
+                    });
+                </script>
 
 </body>
 
