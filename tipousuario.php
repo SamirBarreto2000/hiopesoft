@@ -90,8 +90,8 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Panel de usuarios</h4>
-                            <p class="mb-0" style="color: #888888;">Gestiona y controla los clientes</p>
+                            <h4>Panel de tipo de usuarios</h4>
+                            <p class="mb-0" style="color: #888888;">Gestiona y controla los los tipos de usuarios</p>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -101,7 +101,7 @@
                                 data-target="#basicModal"><i class="bi bi-person-plus"></i>
                                 &nbsp;Agregar tipo de usuario</button>
 
-                            <div class="modal fade" id="basicModal">
+                            <div class="modal fade" id="basicModal" style="color: #888888; padding: 10px;">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -113,13 +113,10 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
+                                                    <label>Nombre de tipo:</label>
                                                     <input type="text" class="form-control input-default "
-                                                        placeholder="Ingresa el">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-rounded"
-                                                        placeholder="input-rounded">
-                                                </div>
+                                                        placeholder="">
+                                                </div> 
                                             </form>
 
                                         </div>

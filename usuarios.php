@@ -64,9 +64,9 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <?php 
-            include_once('elements/header.php')
-        ?>
+        <?php
+        include_once('elements/header.php')
+            ?>
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -74,9 +74,9 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <?php 
-            include_once('elements/sliderbar.php')
-        ?>
+        <?php
+        include_once('elements/sliderbar.php')
+            ?>
         <!--**********************************
             Sidebar end
         ***********************************-->
@@ -96,10 +96,10 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".bd-example-modal-lg"><i class="bi bi-person-plus"></i>
                                 &nbsp;Agregar usuario</button>
-                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content" style="background-color: #F8F9FE;">
                                         <div class="modal-header">
@@ -117,6 +117,14 @@
                                                 <form>
 
                                                     <div class="form-row">
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Codigo:</label>
+                                                            <input type="text" class="form-control" disabled
+                                                                style="background-color: #EAEAEA;"
+                                                                placeholder="Generado automaticamente">
+                                                        </div>
+
                                                         <div class="form-group col-md-6">
                                                             <label>Nombres:</label>
                                                             <input type="text" class="form-control">
@@ -133,41 +141,69 @@
                                                         </div>
 
                                                         <div class="form-group col-md-6">
+                                                            <label>Celular:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Dirección:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-6">
                                                             <label>Contraseña:</label>
                                                             <input type="text" class="form-control">
                                                         </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Fecha de nacimiento:</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Tipo de usuario:</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
+
+
 
                                                         <div class="form-group col-md-6">
                                                             <label>Estado:</label>
-                                                            <input type="date" class="form-control">
+                                                            <select id="inputState" class="form-control">
+                                                                <option>Activo</option>
+                                                                <option>Inactivo</option>
+                                                            </select>
                                                         </div>
 
+
+                                                        <?php
+                                                        $servername = "localhost";
+                                                        $username = "root";
+                                                        $password = "";
+                                                        $dbname = "db_hope";
+                                                        $conn = new mysqli($servername, $username, $password, $dbname);
+                                                        if ($conn->connect_error) {
+                                                            die("Error de conexión: " . $conn->connect_error);
+                                                        }
+                                                        ?>
 
                                                         <div class="form-group col-md-6">
-                                                            <label>Departamento:</label>  
-                                                            <select class="form-control state"></select>
+                                                            <label>Tipo de usuario:</label>
+                                                            <select id="inputState" class="form-control">
+                                                                <?php
+                                                                $sql = "SELECT * FROM tb_tipousuario";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo '<option value="' . $row["cod_tipo"] . '">' . $row["nomb_tipo"] . '</option>';
+                                                                    }
+                                                                } else {
+                                                                    echo '<option value="">No se encontraron colores</option>';
+                                                                }
+                                                                $conn->close();
+                                                                ?>
+                                                            </select>
                                                         </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Provincia:</label>
-                                                            <select class="form-control city"></select>
-                                                        </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Distrito:</label>
-                                                            <select class="form-control district"></select>
-                                                        </div>
 
- 
+
+
+
+
+
 
                                                     </div>
                                                 </form>
@@ -212,8 +248,8 @@
                                     <tr>
                                         <th>1</th>
                                         <td>Samir Enrique</td>
-                                        <td>Barreto Jara</td> 
-                                        <td>71446894</td> 
+                                        <td>Barreto Jara</td>
+                                        <td>71446894</td>
                                         <td>Activo</td>
                                         <td>Administrador</td>
                                         <td style="width: 70px">
@@ -308,76 +344,76 @@
     <script src="./js/dashboard/dashboard-1.js"></script>
     <script>
 
-                    //CARGAMOS LOS DEPARTAMENTOS
-                    $(document).ready(function () {
-                        $.ajax({
-                            type: 'POST',
-                            url: 'api/data.php',
-                            data: { action: 'get-states' },
-                            dataType: 'JSON',
-                            success: function (response) {
-                                var options = '<option value="">Seleccione</option>';
-                                $.each(response, function (index, value) {
-                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
-                                });
-                                $('.state').html(options);
-                                $('.city').html('<option value="">Seleccione</option>');
-                                $('.district').html('<option value="">Seleccione</option>');
-                                $('.ubigeo').val(null);
-                            }
-                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                            console.log(jqXHR);
-                        });
+        //CARGAMOS LOS DEPARTAMENTOS
+        $(document).ready(function () {
+            $.ajax({
+                type: 'POST',
+                url: 'api/data.php',
+                data: { action: 'get-states' },
+                dataType: 'JSON',
+                success: function (response) {
+                    var options = '<option value="">Seleccione</option>';
+                    $.each(response, function (index, value) {
+                        options += '<option value="' + value.id + '">' + value.nombre + '</option>';
                     });
+                    $('.state').html(options);
+                    $('.city').html('<option value="">Seleccione</option>');
+                    $('.district').html('<option value="">Seleccione</option>');
+                    $('.ubigeo').val(null);
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+            });
+        });
 
-                    //OBTENEMOS LAS CIUDADES POR DEPARTAMENTO
-                    $('.state').on('change', function () {
-                        var id = $(this).val();
-                        $.ajax({
-                            type: 'POST',
-                            url: 'api/data.php',
-                            data: { action: 'get-cities', id: id },
-                            dataType: 'JSON',
-                            success: function (response) {
-                                var options = '<option value="">Seleccione</option>';
-                                $.each(response, function (index, value) {
-                                    options += '<option value="' + value.id + '">' + value.nombre + '</option>';
-                                });
-                                $('.city').html(options);
-                                $('.district').html('<option value="">Seleccione</option>');
-                                $('.ubigeo').val(null);
-                            }
-                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                            console.log(jqXHR);
-                        });
+        //OBTENEMOS LAS CIUDADES POR DEPARTAMENTO
+        $('.state').on('change', function () {
+            var id = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: 'api/data.php',
+                data: { action: 'get-cities', id: id },
+                dataType: 'JSON',
+                success: function (response) {
+                    var options = '<option value="">Seleccione</option>';
+                    $.each(response, function (index, value) {
+                        options += '<option value="' + value.id + '">' + value.nombre + '</option>';
                     });
+                    $('.city').html(options);
+                    $('.district').html('<option value="">Seleccione</option>');
+                    $('.ubigeo').val(null);
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+            });
+        });
 
-                    //OBTENEMOS LOS DISTRITOS POR CIUDAD
-                    $('.city').on('change', function () {
-                        var id = $(this).val();
-                        $.ajax({
-                            type: 'POST',
-                            url: 'api/data.php',
-                            data: { action: 'get-districts', id: id },
-                            dataType: 'JSON',
-                            success: function (response) {
-                                var options = '<option value="">Seleccione</option>';
-                                $.each(response, function (index, value) {
-                                    options += '<option value="' + value.id + '" ubigeo="' + value.ubigeo + '">' + value.nombre + '</option>';
-                                });
-                                $('.district').html(options);
-                                $('.ubigeo').val(null);
-                            }
-                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                            console.log(jqXHR);
-                        });
+        //OBTENEMOS LOS DISTRITOS POR CIUDAD
+        $('.city').on('change', function () {
+            var id = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: 'api/data.php',
+                data: { action: 'get-districts', id: id },
+                dataType: 'JSON',
+                success: function (response) {
+                    var options = '<option value="">Seleccione</option>';
+                    $.each(response, function (index, value) {
+                        options += '<option value="' + value.id + '" ubigeo="' + value.ubigeo + '">' + value.nombre + '</option>';
                     });
+                    $('.district').html(options);
+                    $('.ubigeo').val(null);
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+            });
+        });
 
-                    $('.district').on('change', function () {
-                        var ubigeo = $(this).find('option:selected').attr('ubigeo');
-                        $('.ubigeo').val(ubigeo);
-                    });
-                </script>
+        $('.district').on('change', function () {
+            var ubigeo = $(this).find('option:selected').attr('ubigeo');
+            $('.ubigeo').val(ubigeo);
+        });
+    </script>
 
 </body>
 

@@ -333,16 +333,16 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Panel de clientes</h4>
+                            <h4>Panel de usuarios</h4>
                             <p class="mb-0" style="color: #888888;">Gestiona y controla los clientes</p>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".bd-example-modal-lg"><i class="bi bi-person-plus"></i>
-                                &nbsp;Agregar cliente</button>
-                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                &nbsp;Agregar usuario</button>
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content" style="background-color: #F8F9FE;">
                                         <div class="modal-header">
@@ -360,6 +360,14 @@
                                                 <form>
 
                                                     <div class="form-row">
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Codigo:</label>
+                                                            <input type="text" class="form-control" disabled
+                                                                style="background-color: #EAEAEA;"
+                                                                placeholder="Generado automaticamente">
+                                                        </div>
+
                                                         <div class="form-group col-md-6">
                                                             <label>Nombres:</label>
                                                             <input type="text" class="form-control">
@@ -376,41 +384,69 @@
                                                         </div>
 
                                                         <div class="form-group col-md-6">
+                                                            <label>Celular:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Dirección:</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+
+
+                                                        <div class="form-group col-md-6">
                                                             <label>Contraseña:</label>
                                                             <input type="text" class="form-control">
                                                         </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Fecha de nacimiento:</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Tipo de usuario:</label>
-                                                            <input type="date" class="form-control">
-                                                        </div>
+
+
 
                                                         <div class="form-group col-md-6">
                                                             <label>Estado:</label>
-                                                            <input type="date" class="form-control">
+                                                            <select id="inputState" class="form-control">
+                                                                <option>Activo</option>
+                                                                <option>Inactivo</option>
+                                                            </select>
                                                         </div>
 
+
+                                                        <?php
+                                                        $servername = "localhost";
+                                                        $username = "root";
+                                                        $password = "";
+                                                        $dbname = "db_hope";
+                                                        $conn = new mysqli($servername, $username, $password, $dbname);
+                                                        if ($conn->connect_error) {
+                                                            die("Error de conexión: " . $conn->connect_error);
+                                                        }
+                                                        ?>
 
                                                         <div class="form-group col-md-6">
-                                                            <label>Departamento:</label>  
-                                                            <select class="form-control state"></select>
+                                                            <label>Tipo de usuario:</label>
+                                                            <select id="inputState" class="form-control">
+                                                                <?php
+                                                                $sql = "SELECT * FROM tb_tipousuario";
+                                                                $result = $conn->query($sql);
+                                                                if ($result->num_rows > 0) {
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo '<option value="' . $row["cod_tipo"] . '">' . $row["nomb_tipo"] . '</option>';
+                                                                    }
+                                                                } else {
+                                                                    echo '<option value="">No se encontraron colores</option>';
+                                                                }
+                                                                $conn->close();
+                                                                ?>
+                                                            </select>
                                                         </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Provincia:</label>
-                                                            <select class="form-control city"></select>
-                                                        </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label>Distrito:</label>
-                                                            <select class="form-control district"></select>
-                                                        </div>
 
- 
+
+
+
+
+
 
                                                     </div>
                                                 </form>
@@ -443,20 +479,22 @@
                                 <thead>
                                     <tr style="background-color: #593BDB; color: white;">
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Date</th>
-                                        <th>Date</th>
-                                        <th>Price</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>DNI</th>
+                                        <th>Estado</th>
+                                        <th>Tipo de usuario</th>
+                                        <th>Accion</th>
                                     </tr>
                                 </thead>
                                 <tbody style="color: #888888;">
                                     <tr>
                                         <th>1</th>
-                                        <td>Kolor Tea Shirt For Man</td>
-                                        <td>Sale</td>
-                                        <td>Sale</td>
-                                        <td>Kolor Tea Shirt For Man</td>
+                                        <td>Samir Enrique</td>
+                                        <td>Barreto Jara</td>
+                                        <td>71446894</td>
+                                        <td>Activo</td>
+                                        <td>Administrador</td>
                                         <td style="width: 70px">
                                             <div class="btn-group mr-2 mb-2">
                                                 <button type="button" class="btn btn-primary"><i

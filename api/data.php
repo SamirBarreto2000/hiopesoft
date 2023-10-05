@@ -1,5 +1,5 @@
 <?php 
-	$conn = new mysqli('localhost', 'root', '', 'ubigeo_peru');
+	$conn = new mysqli('localhost', 'root', '', 'db_hope');
 	if(!$conn->connect_errno){
 		if(isset($_POST['action'])){
 			switch ($_POST['action']){
